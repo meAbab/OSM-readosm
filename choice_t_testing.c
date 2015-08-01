@@ -1,4 +1,4 @@
-# This program is on-going dev process. 
+// This program is on-going dev process. 
 
 #include <stdio.h>
 #include "readosm.h"
@@ -14,7 +14,7 @@ const readosm_tag *tag;
 for (j=0; j < node->tag_count; j++)
 {
 	tag = node->tags + j;
-	if(strcmp(tag->value, "fuel") == 0) {
+	if(strcmp(tag->value, user_data) == 0) {
 		
 		if (node->tag_count > 0){
 
@@ -43,7 +43,7 @@ for (j=0; j < node->tag_count; j++)
 int main(int argc, char *argv[])
 {
 	const void *osm_handle;
-	int ret;
+	int ret, choice;
 		
 	if(argc !=2)
 	{
@@ -56,9 +56,28 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Unable to open file %d\n", ret);
 		goto stop;
 	}
-	
-	ret = readosm_parse(osm_handle, (const void *) 0,print_node, NULL, NULL);
-	
+	printf("\tChoose from below 4 searching points: \n\n");
+	printf("1. Tankstelle	|	2.Restaurant \n");
+	printf("3. Bankautomat	|	4.Krankenhaus \n\n");
+	scanf("%d", &choice);
+	switch(choice)
+	{
+		case 1:
+		ret = readosm_parse(osm_handle, "fuel",print_node, NULL, NULL);
+		break;
+		case 2:
+		ret = readosm_parse(osm_handle, "restaurant",print_node, NULL, NULL);
+		break;
+		case 3:
+		ret = readosm_parse(osm_handle, "bank",print_node, NULL, NULL);
+		break;
+		case 4:
+		ret = readosm_parse(osm_handle, "Krankenhaus",print_node, NULL, NULL);
+		break;
+		default:
+		printf("Choice is not correct");
+		break;
+	}
 	if(ret != READOSM_OK)
 	{
 		fprintf(stderr, "Parsing error: %d\n", ret);
