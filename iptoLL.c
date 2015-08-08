@@ -1,3 +1,4 @@
+//the program is sending a HTTP request and result your public IP
 #include <string.h> 
 #include <sys/socket.h> 
 #include <netinet/in.h> 
@@ -10,6 +11,7 @@ int main(int argc, char argv[])
 	struct sockaddr_in serv_addr;
 	int sock_d;
 	struct hostent *server;
+	//to send new line in C - \r\n
 	char msgp[45]="GET / HTTP/1.1\r\nHOST: api.ipify.org\r\n\r\n";
 	char rcvmsgp[256],buff[16];
 	
@@ -28,6 +30,7 @@ int main(int argc, char argv[])
 	send(sock_d, msgp, strlen(msgp), 0);
 	recv(sock_d, rcvmsgp, 200, 0);
 	printf("What I got : %s\n",rcvmsgp);
+	// I don't know how to get last line from a string contain multi-line
 	FILE *fp = fopen("ip.txt", "ab");
 	if(fp!=NULL)
 	{
