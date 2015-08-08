@@ -1,9 +1,10 @@
-// This program is on-going dev process. 
+// This program is using switch cases to give your choie and find all result. 
 
 #include <stdio.h>
 #include "readosm.h"
 
 //lng (min/max): 9.63621043828/10.6304495617 lat (min/max): 54.0434449275/54.6231550725
+int no_of_entry=0;
 
 static int print_node (const void *user_data, const readosm_node *node)
 {
@@ -33,10 +34,11 @@ for (j=0; j < node->tag_count; j++)
 						printf ("\t\t<tag k=\"%s\" v=\"%s\" />\n", tag->key,tag->value);
 					}
 				printf ("\t</node>\n");
+				no_of_entry = no_of_entry +1;
 			}
 		}
 	}
-
+	
     return READOSM_OK;
 }
 
@@ -56,6 +58,8 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Unable to open file %d\n", ret);
 		goto stop;
 	}
+	// found way how to take argument to pass as user_data - check helper/str_string.c
+	
 	printf("\tChoose from below 4 searching points: \n\n");
 	printf("1. Tankstelle	|	2.Restaurant \n");
 	printf("3. Bankautomat	|	4.Krankenhaus \n\n");
@@ -83,6 +87,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Parsing error: %d\n", ret);
 		goto stop;
 	}
+	printf("Total Number of Entry found: %d\n",no_of_entry);
 	stop:
 	readosm_close(osm_handle);
 	return 0;
