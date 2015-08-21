@@ -1,0 +1,9 @@
+
+1. I found the finding of long and lat from WAY -> "nd ref" is cost so much time, which is due to reading the whole 
+file again and again. But if, its possible to make some indexing of a file, perhaps it would be easier.
+Here comes, my idea, 
+  1. Indexing of the file according line number, "nd ref" and "node id".
+  2. Using linux head command concept to go to the indexed line number to start reading.
+  3. End the readosm reading, before the next index line number.
+
+Coming soon ....
