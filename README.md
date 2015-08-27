@@ -10,7 +10,7 @@ My plan is to use Yocto in Galileo, so - once which running in any i386, would r
 
 All of these program, is on Ubuntu with Gcc - 4.8.2
 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The program play_it.c is for playing wav file using ALSA library. I used files form 
 
@@ -24,4 +24,4 @@ on the other hand you can use the shell script named audconv.sh
 
 Right now, the play_it.c is an individual program, which just playing 0 to 99. Later it will added with main openstreetmap parsing program.
 
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
