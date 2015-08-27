@@ -8,7 +8,7 @@
 #include "audlolt.h"
 
 int no_of_entry=0;
-double curr_long=10.13625,curr_lat = 54.32168,shortest_dist=20020; // highest distance between two point in earth is 20020 km
+double curr_long=10.53625,curr_lat = 54.02168,shortest_dist=20020; // highest distance between two point in earth is 20020 km
 //double curr_long=10.18608,curr_lat = 54.32658,shortest_dist=20020;
 double deg2rad(double lat);
 char nearest_object[128];
@@ -27,7 +27,7 @@ struct arg_max_min_lo_lt
 struct arg_max_min_lo_lt get_lo_lt_values()
 {
 		int eRadius = 12742;
-		float radius=1;
+		float radius=4;
 		struct arg_max_min_lo_lt m_lo_lt_ptr;
 		//each degree of lon or lat is approximately 69 miles or 111 kilometres difference
 		double denominator = cos(deg2rad(curr_lat)) * 111;
@@ -143,9 +143,15 @@ int main(int argc, char** argv)
 		fprintf(stderr, "Parsing error: %d\n", ret);
 		goto stop;
 	}
+	if(no_of_entry > 0)
+	{
 	printf("Total Number of Entry found: %d\n",no_of_entry);
 	printf("Your nearest %s search result is approximately : %1.7f meter far name / facility %s\n",argv[2],shortest_dist,nearest_object);
 	play_audio(shortest_dist);
+	}
+	else{
+	printf("No %s found in given radius\n", argv[2]);
+	}
 	stop:
 	readosm_close(osm_handle);
 	return 0;
