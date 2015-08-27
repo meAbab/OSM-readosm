@@ -11,14 +11,15 @@ int main()
 	size_t nread;
 	char* dir = "aud/"; 
 	char* extension = ".wav";
-	char fileSpec[strlen(dir)+strlen(extension)+3];
+	char afilename[strlen(dir)+strlen(extension)+3];
 	
+	// open Audio 0 Device & 0 Sub-Device
 	if((err = snd_pcm_open(&pcm_handle,"plughw:0,0",SND_PCM_STREAM_PLAYBACK,0)) < 0)
 	{
 		fprintf(stderr,"Can't open the sound device %s",snd_strerror(err));
 		return err;
 	}
-	
+	// setting parameters for ALSA
 	snd_pcm_hw_params_alloca(&params);
 	snd_pcm_hw_params_any(pcm_handle,params);
 	snd_pcm_hw_params_set_access(pcm_handle,params,SND_PCM_ACCESS_RW_INTERLEAVED);
@@ -31,20 +32,21 @@ int main()
 		fprintf(stderr,"Can't set parameters for sound %s\n",snd_strerror(err));
 		return err;
 	}
-	
+	// count and concatenate to make files
 	for (i; i<100;i++)
 	{
-	    snprintf(fileSpec, sizeof( fileSpec ), "%s%d%s", dir, i, extension );
-	    		
-		afile = fopen(fileSpec, "r");
+	    snprintf(afilename, sizeof( afilename ), "%s%d%s", dir, i, extension );
+	    
+		// opening file & proceed
+		afile = fopen(afilename, "r");
 		
 		if(afile == NULL)
 			{
 				fprintf(stderr,"Can't Open file for reading\n");
 				return 1;
 			}
-	
-		while ((nread = fread(buf, sizeof(int), 128, afile)) > 0)
+	// read from afile [the wav file/s] 128 data elements each of which is 2 byte long and send to ALSA playback
+		while ((nread = fread(buf, sizeof(short), 128, afile)) > 0)
 		{
 			if((err = snd_pcm_writei(pcm_handle, buf, nread)) != nread)
 			{
