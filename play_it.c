@@ -13,7 +13,7 @@ int main()
 	char* extension = ".wav";
 	char afilename[strlen(dir)+strlen(extension)+3];
 	
-	// open Audio 0 Device & 0 Sub-Device
+	// open Audio 0[first] Card & 0[first] Device
 	if((err = snd_pcm_open(&pcm_handle,"plughw:0,0",SND_PCM_STREAM_PLAYBACK,0)) < 0)
 	{
 		fprintf(stderr,"Can't open the sound device %s",snd_strerror(err));
