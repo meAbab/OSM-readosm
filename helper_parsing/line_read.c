@@ -1,3 +1,7 @@
+/* This file is a modification of 
+	hxxp://rosettacode.org/wiki/Read_a_specific_line_from_a_file
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
  
