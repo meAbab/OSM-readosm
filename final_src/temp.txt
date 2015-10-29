@@ -1,0 +1,80 @@
+270289562=supermarket=famila=Kiel=Grot Steenbusch=35
+1394779801=supermarket=sky=Kiel=Kirchhofallee=66a
+3025557114=supermarket=Lidl=Kiel=Kirchhofallee=68
+292564059=supermarket=CuC Schaper Großmarkt=Kiel=Tonberg=7
+1882085559=supermarket=Netto Marken-Discount=Kiel=Schönberger Straße=44
+1821200819=supermarket=Real=Schwentinental=Mergenthalerstraße=13-21
+310531812=supermarket=sky=Gettorf=Süderstraße=4
+729567506=supermarket=Lidl=Kiel=Wischhofstraße=80
+351911627=supermarket=Edeka=Preetz=Kieler Straße=29
+370231965=supermarket=Edeka Alpen=Schönberg=Bahnhofstraße=20
+371219756=supermarket=Lidl=Eckernförde=Ostlandstraße=98
+371219796=supermarket=Aldi=Eckernförde=Ostlandstraße=99
+371219814=supermarket=Markant=Eckernförde=Ostlandstraße=101
+415499302=supermarket=Netto=Kiel=Preetzer Chaussee=234
+420815415=supermarket=Aldi=Kiel=Grot Steenbusch=35
+437947316=supermarket=Markant=Schönberg=Eichkamp=9
+2891634856=supermarket=Penny=Schönberg=Kuhlenkamp=2a
+443693611=supermarket=sky=Schönkirchen=Schönberger Landstraße=3-13
+448858949=supermarket=Sky=Kiel=Schönberger Straße=133
+452405896=supermarket=ALDI Nord=Preetz=Wakendorfer Straße=73
+484210669=supermarket=Aldi=Flintbek=Lise-Meitner-Straße=3
+504082047=supermarket=Edeka Huchthausen=Neumünster=Grüner Wég=11
+505222035=supermarket=Aldi=Eckernförde=Kreisbahnstraße=6
+2281006504=supermarket=Neukauf Ristow=Mönkeberg=Heikendorfer Weg=18
+1718814042=supermarket=Lidl=Plön=Bullenwarder=1
+540352315=supermarket=Edeka=Eckernförde=Sauerstraße=1
+540398872=supermarket=Lidl=Eckernförde=Sauerstraße=2-6
+546276336=supermarket=sky=Eckernförde=Kakabellenweg=11
+581301488=supermarket=Penny=Gettorf=Am Markt=10
+582841336=supermarket=Aldi=Schwentinental=Lütjenburger Straße=2
+586412900=supermarket=famila Kiel-Russee=Kiel=Seekoppelweg=2
+1802227272=supermarket=sky=Preetz=Hufenweg=24
+3547412637=supermarket=NETTO=Preetz=Garnkorb=8
+661124949=supermarket=Lidl=Bordesholm=Holstenstraße=47
+729687766=supermarket=sky=Kiel=Holtenauer Straße=71
+514348434=supermarket=sky=Kiel=Hamburger Chaussee=114
+894484703=supermarket=ALDI=Kiel=Steekberg=1
+922687942=supermarket=EDEKA aktiv-markt Kai Scheller=Bredenbek=Kieler Straße=2
+976584444=supermarket=sky=Malente=Bahnhofstraße=61-63
+1908390488=supermarket=Aldi=Kiel=Villacher Straße=8
+1154837415=supermarket=ALDI=Kiel=Droysenstraße=5
+1193126627=supermarket=sky=Kiel=Weißenburgstraße=15
+1324914563=supermarket=sky=Plön=Markt=31
+1328608448=supermarket=Aldi=Plön=Fünf-Seen-Allee=22
+1328608440=supermarket=Edeka=Plön=Fünf-Seen-Allee=21
+1328621770=supermarket=sky=Kiel=Göteborgring=3
+1336561918=supermarket=Top Kauf=Schwentinental=Dorfstraße=94
+573862912=supermarket=Aldi=Kiel=Theodor-Heuss-Ring=136
+1384528511=supermarket=Rossmann=Kiel=Spreeallee=74
+1434209527=supermarket=REWE=Kiel=Projensdorfer Straße=148
+1447911323=supermarket=Lidl=Kiel=Rendsburger Landstraße=360
+1488725058=supermarket=Penny=Kiel=Holtenauer Straße=234
+1492283257=supermarket=Penny=Kiel=Werftstraße=247
+1492423616=supermarket=sky=Kiel=Richthofenstraße=57
+1520202341=supermarket=sky=Kiel=Elisabethstraße=39
+1534321104=supermarket=netto=Preetz=Kieler Straße=31
+1564268719=supermarket=sky=Kiel=Langenfelde=126a
+2465552584=supermarket=Aldi=Kiel=Philipp-Reis-Weg=4
+303439763=supermarket=Lidl=Schwentinental=Mergenthalerstraße=24
+1685856798=supermarket=sky=Schwentinental=Klingenbergstraße=64
+1704140214=supermarket=E aktiv markt Grümmer Lebensmittelmärkte Einfeld=Neumünster=Roschdohler Weg=12
+1798094865=supermarket=Rewe=Schwentinental=Rönner Weg=2b
+1825159726=supermarket=Aldi=Laboe=Bullbrücke=1
+985963331=supermarket=ALDI=Kiel=Prinz-Heinrich-Straße=20
+1837640660=supermarket=EDEKA Albrechsen=Flintbek=Dorfstraße=14
+2090400975=supermarket=Penny-Markt=Neumünster=Padenstedter Landstraße=2
+1937721887=supermarket=sky=Preetz=Markt=8
+2088443959=supermarket=Edeka -Grätsch-=Neu=Mühlenstraße=2-6
+2153427489=supermarket=sky=Wankendorf=Bornhöveder Landstraße=2
+2216585428=supermarket=Lidl=Eutin=Plöner Straße=9
+2280851783=supermarket=sky=Kronshagen=Suchsdorfer Weg=7
+2288901732=supermarket=Aldi=Selent=Kieler Straße=5
+2288901795=supermarket=Edeka=Selent=Kieler Straße=2
+2446101033=supermarket=sky=Kronshagen=Kieler Straße=116
+1606024668=supermarket=Markant=Kiel=Philipp-Reis-Weg=2
+2563863507=supermarket=sky=Kiel=Gutenbergstraße=77
+2708779285=supermarket=Edeka Dormeier=Preetz=Plöner Landstraße=18
+2737123313=supermarket=ALDI=Kiel=Torfmoorkamp=10
+2784431181=supermarket=EDEKA=Kiel=Dr.-Hell-Straße=1
+1425149438=supermarket=Netto=Kiel=Gurlittstraße=5

@@ -98,15 +98,34 @@ int splitOSM()
 	char way_compare[] = "\t<way i";
 	FILE *fp;
 	char ckchr[8];
-	int count_line=1;
-	int way_line = 0, z = 0, way_last_line = 0;
+	int count_line=1, way_line = 0, z = 0, way_last_line = 0, pos;
+	double file_size;
+	char file_size_str[4];
 	
-	if(!(fp = fopen("Kiel.osm", "r")))
+	if(!(fp = fopen("nms.osm", "r")))
 	{
 		printf("\n Error on OSM file opening\n");
 		return -1;
 	}
 	
+	pos = ftell (fp);
+	fseek (fp, 0, SEEK_END);
+	file_size = ftell (fp);
+	fseek (fp, pos, SEEK_SET);
+	
+	sprintf (file_size_str, "%1.0f", file_size);
+	
+	FILE *filedesc;
+	
+	if(!(filedesc = fopen ("file.desc", "w")))
+	{
+		fputs (file_size_str, filedesc);
+		fputs ("#", filedesc);
+	
+		fclose (filedesc);
+	
+	}
+		
 	char chr = getc(fp);
 	
 	while(chr != EOF)

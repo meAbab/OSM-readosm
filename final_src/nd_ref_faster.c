@@ -78,7 +78,12 @@ int nd_ref_faster()
 	
 	confFILE = fopen("temp.txt", "r");
 	
-	while( fgets(serTag, sizeof(serTag), confFILE) != NULL)
+	if (confFILE == NULL)
+	{
+		printf ("way extracted temp file not found\n");
+	}
+	
+	while( fgets(serTag, 256, confFILE) != NULL)
 	{
 		char *newline;
 		if((newline = strchr (serTag, '\n')) != NULL)
