@@ -136,7 +136,8 @@ void runProgram	()
 
 void helpprinting()
 {
-	printf ("printing all help issues\n");
+	help_menu();
+	main ();
 }
 
 /*

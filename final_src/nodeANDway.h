@@ -22,9 +22,9 @@ int tag_find_node(char tag_find[]);
 
 int nd_ref_faster();
 
-extern double curr_long,curr_lat,shortest_dist;
-extern char nearest_object[128];
-extern int no_of_entry;
+int file_check();
+
+int help_menu();
 
 extern char user_search_input[32];
 
