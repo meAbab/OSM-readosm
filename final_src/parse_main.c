@@ -53,10 +53,10 @@ void configureprogram()
 
 		strcpy (user_search_input, strtok(serTag, "$"));
 		
-		char filename[strlen (user_search_input) + strlen (extension) + 3];
+		char filename[strlen (user_search_input) + strlen (extension) + 1];
 		
 		snprintf (filename, sizeof(filename), "%s%s", 
-				user_search_input, extension);
+							user_search_input, extension);
 		
 		if ( access(filename, F_OK) != 0)
 		{
@@ -103,7 +103,7 @@ void configureprogram()
 	}
 	
 	if (split_ret + wayfile_ret +
-		tag_find_ret + nd_ref_ret == 3082)
+			tag_find_ret + nd_ref_ret == 3082)
 	{
 		printf ("\tProgram Configured Successfully!!\n");
 	}
@@ -131,7 +131,8 @@ void configupdate ()
 
 void runProgram	()
 {
-	printf ("Here something more !\n");
+	system ("clear");
+	system ("./calc_lon_lat.o");
 }
 
 void helpprinting()
