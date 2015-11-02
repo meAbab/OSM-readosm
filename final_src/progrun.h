@@ -6,7 +6,7 @@ struct lon_lat{
 	double curr_lat;
 };
 
-int calc_lon_lat(double node_lat, double node_long );
+double calc_lon_lat(double node_lat, double node_long );
 
 void short_dist();
 

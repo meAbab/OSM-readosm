@@ -194,9 +194,10 @@ int main()
 	printf ("Name: %s\n\t\tAT: %s %s, %s\n",
 				short_obj_res.object_name, short_obj_res.street_value,
 				short_obj_res. housenr_value, short_obj_res.city_value);
-	//sleep (5);
+				
+	sleep (5);
 	
-	//loopmain ();
+	loopmain ();
 	
 	stop:
 	readosm_close(osm_handle);

@@ -26,6 +26,11 @@ int file_check();
 
 int help_menu();
 
+struct lon_lat{
+	double curr_lon;
+	double curr_lat;
+};
+
 extern char user_search_input[32];
 
 #endif

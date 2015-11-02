@@ -117,7 +117,7 @@ void configupdate ()
 	}
 	else{
 		
-		FILE *createCONF = fopen ("prog.conf","rw");
+		FILE *createCONF = fopen ("prog.conf","w");
 		
 		system ("pico prog.conf");
 		

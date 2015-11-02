@@ -39,7 +39,7 @@ struct lon_lat iptoll()
 	//server = gethostbyname ("api.ipify.org");
 	if ((server = gethostbyname ("ipinfo.io")) == NULL)
 	{
-		fprintf (stderr, "Error in DNS settings\n");
+		fprintf (stderr, "Error in Internet Connection or DNS settings\n");
 		return -1;
 	}
 	
@@ -88,7 +88,7 @@ struct lon_lat iptoll()
 	
 	//printf ("Position I'm searching is at : %d\n", (pos + pars_len));
 	
-	//struct lon_lat curr_lolt;
+	struct lon_lat curr_lolt;
 	
 	for (i = (pos + pars_len); i < (pos + pars_len + 7); i++)
 	{
@@ -99,11 +99,11 @@ struct lon_lat iptoll()
 	
 	j = 0;
 	
-	//printf ("\nOutput lat(str) = %s\n", lat);
+	printf ("\nOutput lat(str) = %s\n", lat);
 	
 	curr_lolt.curr_lat = atof(lat);
 	
-	printf ("Current Latitude %1.4f\n", curr_lolt.curr_lat);
+	//printf ("Current Latitude %1.4f\n", curr_lolt.curr_lat);
 	
 	for (i = (i+1); i < (pos + pars_len + 14); i++)
 	{
@@ -112,12 +112,12 @@ struct lon_lat iptoll()
 		
 	}
 	
-	//printf ("\nOutput lon(str) = %s\n", lon);
+	printf ("\nOutput lon(str) = %s\n", lon);
 	
 	curr_lolt.curr_long = atof(lon);
 	
-	printf ("Current Longitude %1.4f\n", curr_lolt.curr_long);
+	//printf ("Current Longitude %1.4f\n", curr_lolt.curr_long);
 	
 	return curr_lolt;
 	
-}	
+}

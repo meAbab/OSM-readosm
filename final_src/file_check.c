@@ -24,6 +24,14 @@ int file_check()
 		fclose (file_check);
 	}
 	
+	if ((file_check = fopen ("nms.osm", "rb")) == NULL)
+	{
+		
+		perror ("MAIN .osm file not available. PROG. EXIT!!!\n");
+		return -1;
+		
+	}
+	
 	if ((file_check = fopen ("node_split.osm", "rb")) != NULL)
 	{
 		fseek (file_check, 0, SEEK_END);
@@ -64,8 +72,10 @@ int file_check()
 			access ("relation_split.osm", F_OK) != -1 &&
 			strcmp (file_size_saved, split_file_size) == 0)
 		{
+			
 			return_value = 1327;
 			break;
+			
 		}
 		
 		break;
@@ -76,12 +86,14 @@ int file_check()
 		access ("node_split.osm", F_OK) != 0 ||
 		access ("way_split.osm", F_OK) != 0 ||
 		access ("relation_split.osm", F_OK) != 0)
+	
 	{
 		remove ("node_split.osm");
 		remove ("way_split.osm");
 		remove ("relation_split.osm");
 		
 		return_value = 1373;
+		
 	}
 	
 	fclose (file_check);
