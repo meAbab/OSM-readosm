@@ -10,8 +10,7 @@
 
 //int 
 //main(int argc, char argv[])
-struct lon_lat 
-iptoll()
+struct lon_lat iptoll()
 {
 	struct sockaddr_in serv_addr;
 	int sock_d;
@@ -24,7 +23,12 @@ iptoll()
 	char lat[8], lon[8], rcvmsgp[512], parse_wd[16] = "\"loc\": \"";
 	int web_len, pars_len, web_cnt = 0, pars_cnt = 0, pos, e, i, j = 0;
 		
-	sock_d = socket (AF_INET, SOCK_STREAM, 0);
+	if ((sock_d = socket (AF_INET, SOCK_STREAM, 0)) == -1)
+	{
+		perror ("SOCKET: error");
+		return -1;
+	}
+	
 //	socklen_t slen = sizeof (serv_addr);
 	
 	bzero (&serv_addr, sizeof(serv_addr));
@@ -33,13 +37,26 @@ iptoll()
 	serv_addr.sin_port = htons( 80);
 	
 	//server = gethostbyname ("api.ipify.org");
-	server = gethostbyname ("ipinfo.io");
+	if ((server = gethostbyname ("ipinfo.io")) == NULL)
+	{
+		fprintf (stderr, "Error in DNS settings\n");
+		return -1;
+	}
 	
 	memcpy (&serv_addr.sin_addr.s_addr, server->h_addr, server->h_length);
 
-	connect(sock_d, (struct sockaddr *)&serv_addr,sizeof(serv_addr));
+	if (connect(sock_d, (struct sockaddr *)&serv_addr,sizeof(serv_addr)) < 0)
+	{
+		perror ("Internet Connection issue: Check !");
+		return -1;
+	}
 	
-	send (sock_d, msgp, strlen(msgp), 0);
+	if (send (sock_d, msgp, strlen(msgp), 0) == -1)
+	{
+		perror ("ERROR communicating ipinfo.io\n");
+		return -1;
+	}
+	
 	recv (sock_d, rcvmsgp, 512, 0);
 	
 	//printf ("What I've got : %s\n", rcvmsgp);
@@ -71,7 +88,7 @@ iptoll()
 	
 	//printf ("Position I'm searching is at : %d\n", (pos + pars_len));
 	
-	struct lon_lat curr_lolt;
+	//struct lon_lat curr_lolt;
 	
 	for (i = (pos + pars_len); i < (pos + pars_len + 7); i++)
 	{
@@ -95,11 +112,12 @@ iptoll()
 		
 	}
 	
-	//printf ("\nOutput lat(str) = %s\n", lon);
+	//printf ("\nOutput lon(str) = %s\n", lon);
 	
 	curr_lolt.curr_long = atof(lon);
 	
 	printf ("Current Longitude %1.4f\n", curr_lolt.curr_long);
 	
 	return curr_lolt;
+	
 }	
