@@ -49,17 +49,17 @@ static int
 print_node (const void *user_data, const readosm_node *node)
 {
 	
-	char *object_name_tmp;
-	char object_name[128];
-	object_name[0] = 0;
+ char *object_name_tmp;
+ char object_name[128];
+ object_name[0] = 0;
 
-const readosm_tag *tag;
-const readosm_tag *city;
-const readosm_tag *street;
-const readosm_tag *housenr;
+ const readosm_tag *tag;
+ const readosm_tag *city;
+ const readosm_tag *street;
+ const readosm_tag *housenr;
 	 
-int j;
-char nodeid[128];
+ int j;
+ char nodeid[128];
 
 	for (j = 0; j < node->tag_count; j++)
 	{	
@@ -143,5 +143,5 @@ int tag_find_node(char tag_find[])
 
 	stop:
 	readosm_close(osm_handle);
-	return 0;
+	return 1637;
 }

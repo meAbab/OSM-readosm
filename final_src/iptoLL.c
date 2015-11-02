@@ -86,7 +86,7 @@ iptoll()
 	
 	curr_lolt.curr_lat = atof(lat);
 	
-	printf ("Currnet Latitude %1.4f\n", curr_lolt.curr_lat);
+	printf ("Current Latitude %1.4f\n", curr_lolt.curr_lat);
 	
 	for (i = (i+1); i < (pos + pars_len + 14); i++)
 	{
@@ -99,7 +99,7 @@ iptoll()
 	
 	curr_lolt.curr_long = atof(lon);
 	
-	printf ("Currnet Longitude %1.4f\n", curr_lolt.curr_long);
+	printf ("Current Longitude %1.4f\n", curr_lolt.curr_long);
 	
 	return curr_lolt;
 }	

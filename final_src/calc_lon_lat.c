@@ -2,11 +2,11 @@
 #include <math.h>
 #include "progrun.h"
 
-// highest distance between two point in earth is 20020 km
+
 struct lon_lat calc_lnlt;
 int only_once1 = 0;
 
-double shortest_dist=20020;
+double shortest_dist=20020; // highest distance between two point in earth is 20020 km
 
 int count = 0;
 
@@ -23,13 +23,13 @@ void short_dist()
 	if (shortest_dist < 1000)
 	{
 		printf ("\n\nYou have %d searched object in 3 KM radius\n", count);
-		printf ("\n\nShortest Distance to Object is %f meter\n\n", shortest_dist);
+		printf ("\n\nShortest Distance to Object is approx. %f meter\n\n", shortest_dist);
 	}
 	
 	if (shortest_dist > 1000 && count > 0)
 	{
 		printf ("\n\nYou have %d searched object in 3 KM radius\n", count);
-		printf ("\n\nShortest Distance to Object is %1.1f Km\n\n", (shortest_dist / 1000));
+		printf ("\n\nShortest Distance to Object is approx. %1.1f Km\n\n", (shortest_dist / 1000));
 	}
 	
 	
@@ -80,11 +80,13 @@ struct arg_max_min_lo_lt get_lo_lt_values()
 }
 
 
-int calc_lon_lat(double node_lat, double node_long )
+double  
+calc_lon_lat(double node_lat, double node_long )
 {
 	
-	int calc_ret = 11, eRadius = 12742000;  // earth diameter = 12742 Km.
-	double dist_lon, dist_lat,deg_calc,dist_2_po;
+	int eRadius = 12742000;  // earth diameter = 12742 Km.  calc_ret = 11,
+	
+	double dist_lon, dist_lat, deg_calc, dist_2_po;
 		
 	struct arg_max_min_lo_lt short_calc = get_lo_lt_values();
 	
@@ -124,11 +126,11 @@ int calc_lon_lat(double node_lat, double node_long )
 			 
 		count++;
 		
-		calc_ret = 1567;
+		//calc_ret = 1567;
 	  }
 		
 	
-	return calc_ret;	
+	return dist_2_po;	
 }
 
 double deg2rad(double lat)

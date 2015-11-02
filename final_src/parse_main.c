@@ -29,9 +29,6 @@ void configureprogram()
 	
 	if ( file_check() == 1373)
 	{
-		remove ("node_split.osm");
-		remove ("way_split.osm");
-		remove ("relation_split.osm");
 		
 		split_ret = splitOSM();
 		
@@ -107,6 +104,8 @@ void configureprogram()
 	{
 		printf ("\tProgram Configured Successfully!!\n");
 	}
+	
+	main();
 	
 }
 

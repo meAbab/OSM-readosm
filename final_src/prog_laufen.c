@@ -13,31 +13,90 @@
 
 void loopmain();
 
+struct shorted_object
+{
+	char object_name[128], street_value[128];
+	char housenr_value[8], city_value[32];
+};
+
+struct shorted_object short_obj_res;
+
+double st_dist=20020;
+
+static const readosm_tag *
+find_tag (const readosm_node * node, const char * key)
+{
+	 int i;
+     const readosm_tag *tag;
+
+     for (i = 0; i < node->tag_count; i++)
+     {
+         tag = node->tags + i;
+         if (strcmp(tag->key, key) == 0)
+             return tag;
+     }
+     return NULL;
+}
+
 static int print_node 
 (const void *user_data, const readosm_node *node)
 {
- int j, calc_ret;
+	
+ int j;
+ char object_name[128];
+ double calc_ret = 0.00000;
+ 
  const readosm_tag *tag;
+ const readosm_tag *city;
+ const readosm_tag *street;
+ const readosm_tag *housenr;
 	
 	
 	calc_ret = calc_lon_lat (node->latitude,
-							 node->longitude);
+								node->longitude);
 	
-	if (calc_ret == 1567)
+	
+	if (abs (calc_ret) > 0 && abs (calc_ret) < 30000)
 	{
-		printf ("lat = %1.7f", node->latitude);
-		printf (" lon = %1.7f\n", node->longitude);
+	//	printf ("lat = %1.7f", node->latitude);
+	//	printf (" lon = %1.7f\n", node->longitude);
+	
+		printf ("Distance: %f\n", calc_ret);
 		
 		for (j=0; j < node->tag_count; j++)
 		{
 		
-		tag = node->tags + j;
+		  tag = node->tags + j;
 		
-		printf ("\t\t<tag k=\"%s\" v=\"%s\" />\n",
-								tag->key, tag->value);
+		  if (strcmp(tag->key,"name") == 0)
+		  {
+				
+			strncpy (object_name,tag->value,128); 
+				
+		  }
+		
+		  city = find_tag (node, "addr:city");
+		  street = find_tag (node, "addr:street");
+		  housenr = find_tag (node, "addr:housenumber");
 		
 		}
+
+		printf ("Name: %s\n\t\tAT: %s %s, %s\n", 
+						object_name, street->value, housenr->value, city->value);
 	
+	}
+	
+	if ( calc_ret < st_dist && abs(calc_ret) > 0)
+	{
+		
+		//printf ("\nTHIS IS SHORTEST");
+		strncpy (short_obj_res.object_name, object_name, 128);
+		strncpy (short_obj_res.street_value, street->value, 128);
+		strncpy (short_obj_res.housenr_value, housenr->value, 8);
+		strncpy (short_obj_res.city_value, city->value, 32);
+		
+		st_dist = calc_ret;
+		
 	}
 	
     return READOSM_OK;
@@ -132,9 +191,12 @@ int main()
 	
 	short_dist ();
 	
-	sleep (5);
+	printf ("Name: %s\n\t\tAT: %s %s, %s\n",
+				short_obj_res.object_name, short_obj_res.street_value,
+				short_obj_res. housenr_value, short_obj_res.city_value);
+	//sleep (5);
 	
-	loopmain ();
+	//loopmain ();
 	
 	stop:
 	readosm_close(osm_handle);

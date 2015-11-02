@@ -117,7 +117,7 @@ int splitOSM()
 	
 	FILE *filedesc;
 	
-	if(!(filedesc = fopen ("file.desc", "w")))
+	if((filedesc = fopen ("file.desc", "w")) != NULL)
 	{
 		fputs (file_size_str, filedesc);
 		fputs ("#", filedesc);
