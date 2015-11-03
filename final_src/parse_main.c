@@ -7,9 +7,80 @@ split_osm.c / nodeANDway.h / searched_file_create.c / only_node_parse.c / nd_ref
 #include <string.h>
 #include <unistd.h>
 #include <time.h>
+#include <stdlib.h>
 #include "nodeANDway.h"
 
+void configureprogram();
+void configupdate ();
+void runProgram();
+void helpprinting();
+
 char user_search_input[32];
+
+/*
+void loopmain()
+{
+	main();
+}
+*/
+
+int 
+main()
+{
+	clock_t begin, tend;
+	double ex_time;
+	
+	int menu;
+	
+	system ("clear");
+	
+	printf (" MENU: \n");
+	printf ("1. Configure the Program.\n");
+	printf ("2. Edit / Update config file.\n");
+	printf ("3. Run the program.\n");
+	printf ("4. Help.\n");
+	printf ("5. Quit Program.\n");
+	printf ("Enter your choice: ");
+
+	begin = clock();
+		
+	scanf("%d", &menu);
+	
+	  switch (menu)
+	  {
+		  case 1: 
+		  //	printf ("Spliting main big .OSM file.");
+			  configureprogram();
+			  break;
+		
+		  case 2:
+			  configupdate();
+			  break;
+		
+		  case 3:
+		      runProgram();
+			  break;
+			
+		  case 4:
+			  helpprinting();
+			  break;
+			 
+		  case 5:
+			  break;
+			
+		  /*default:
+			  loopmain();
+			  break;
+			*/  
+	    }
+	 
+	
+	tend = clock();
+	ex_time = (double)(tend - begin) / CLOCKS_PER_SEC;
+	
+	printf("\n Execution Time %f\n",ex_time);
+	return 0;
+}
 
 void configureprogram()
 {
@@ -109,6 +180,7 @@ void configureprogram()
 	
 }
 
+
 void configupdate ()
 {
 	if ( access ("prog.conf", F_OK) != -1)
@@ -131,76 +203,12 @@ void configupdate ()
 void runProgram	()
 {
 	system ("clear");
-	system ("./calc_lon_lat.o");
+	system ("./calc_lon_lat");
 }
+
 
 void helpprinting()
 {
 	help_menu();
 	main ();
-}
-
-/*
-void loopmain()
-{
-	main();
-}
-*/
-
-int 
-main()
-{
-	clock_t begin, tend;
-	double ex_time;
-	
-	int menu;
-	
-	system ("clear");
-	
-	printf (" MENU: \n");
-	printf ("1. Configure the Program.\n");
-	printf ("2. Edit / Update config file.\n");
-	printf ("3. Run the program.\n");
-	printf ("4. Help.\n");
-	printf ("5. Quit Program.\n");
-	printf ("Enter your choice: ");
-
-	begin = clock();
-		
-	scanf("%d", &menu);
-	
-	  switch (menu)
-	  {
-		  case 1: 
-		  //	printf ("Spliting main big .OSM file.");
-			  configureprogram();
-			  break;
-		
-		  case 2:
-			  configupdate();
-			  break;
-		
-		  case 3:
-		      runProgram();
-			  break;
-			
-		  case 4:
-			  helpprinting();
-			  break;
-			 
-		  case 5:
-			  break;
-			
-		  /*default:
-			  loopmain();
-			  break;
-			*/  
-	    }
-	 
-	
-	tend = clock();
-	ex_time = (double)(tend - begin) / CLOCKS_PER_SEC;
-	
-	printf("\n Execution Time %f\n",ex_time);
-	return 0;
 }
