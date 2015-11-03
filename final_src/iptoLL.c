@@ -26,7 +26,7 @@ struct lon_lat iptoll()
 	if ((sock_d = socket (AF_INET, SOCK_STREAM, 0)) == -1)
 	{
 		perror ("SOCKET: error");
-		exit (EXIT_FAILURE);;
+		exit (EXIT_FAILURE);
 	}
 	
 //	socklen_t slen = sizeof (serv_addr);
@@ -40,7 +40,7 @@ struct lon_lat iptoll()
 	if ((server = gethostbyname ("ipinfo.io")) == NULL)
 	{
 		fprintf (stderr, "Error in Internet Connection or DNS settings\n");
-		exit (EXIT_FAILURE);;
+		exit (EXIT_FAILURE);
 	}
 	
 	memcpy (&serv_addr.sin_addr.s_addr, server->h_addr, server->h_length);
@@ -48,13 +48,13 @@ struct lon_lat iptoll()
 	if (connect(sock_d, (struct sockaddr *)&serv_addr,sizeof(serv_addr)) < 0)
 	{
 		perror ("Internet Connection issue: Check !");
-		exit (EXIT_FAILURE);;
+		exit (EXIT_FAILURE);
 	}
 	
 	if (send (sock_d, msgp, strlen(msgp), 0) == -1)
 	{
 		perror ("ERROR communicating ipinfo.io\n");
-		exit (EXIT_FAILURE);;
+		exit (EXIT_FAILURE);
 	}
 	
 	recv (sock_d, rcvmsgp, 512, 0);
