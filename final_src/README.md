@@ -1,6 +1,7 @@
     *-----------------------------------------------------------------------------------------------*
 	| SHORTED PATH OBJECT, is a compound program. It depend and run with library "readosm".         |
-	| SHORTED PATH OBJECT, takes user input for an object and if that object is already configured. |
+	|          SHORTED PATH OBJECT, takes user input for an object and give result,                 |
+	|  if that object is already configured, or show recommended help for re-configure              |
 	*-----------------------------------------------------------------------------------------------*
 
 
