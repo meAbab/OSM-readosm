@@ -4,6 +4,7 @@
 	|  if that object is already configured, or show recommended help for re-configure              |
 	*-----------------------------------------------------------------------------------------------*
 
+![](https://github.com/merafiq/OSM-readosm/blob/master/final_src/spo_u.png)
 
   How to configure the program?
   --------------------------------
