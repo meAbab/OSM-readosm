@@ -150,7 +150,7 @@ int main()
 	
 	else if ((!strcmp (user_input, "quit")))
 		 {
-			system ("./first_check.o");
+			system ("./spo");
 			return 0;
 		 }
 	
@@ -208,5 +208,6 @@ int main()
 void loopmain()
 {
 	system ("clear");
+	resetGlobal();
 	main ();
 }

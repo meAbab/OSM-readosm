@@ -10,6 +10,8 @@ double calc_lon_lat(double node_lat, double node_long );
 
 void short_dist();
 
+void resetGlobal();
+
 struct lon_lat iptoll();
 
 #endif
